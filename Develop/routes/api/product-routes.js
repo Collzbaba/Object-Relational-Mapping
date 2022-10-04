@@ -11,13 +11,11 @@ router.get('/', (req, res) => {
     Product.findAll({
     include:[Category,{model: Tag, through: ProductTag,}]
   })
-  .then((products)=>response.json(products))
+  .then((products)=>res.json(products))
   .catch((err) => {
     console.log(err);
     res.status(500).json(err);
 });
-  console.log(req);
-  res.json("this is my respoitnse");
 
 });
 
